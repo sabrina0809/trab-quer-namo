@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Botão Tóxico - Namorar</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f8f9fa;
+      margin: 0;
+      position: relative;
+    }
+
+    .btn-toxic {
+      background-color: #e234ce; 
+      color: #000000;
+      font-size: 18px;
+      border-radius: 50px;
+      padding: 15px 30px;
+      text-transform: uppercase;
+      font-weight: bold;
+      transition: 0.3s ease;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-toxic:hover {
+      background-color: #c0244d;
+      transform: scale(1.1);
+    }
+
+    .btn-toxic:active {
+      background-color: #dc143c;
+    }
+
+    .message {
+      font-size: 24px;
+      font-weight: bold;
+      color: green;
+      margin-top: 20px;
+      display: none;
+      text-align: center;
+    }
+  </style>
+</head>
+<body> 
+   <h1> Quer namorar comigo?</h1>
+
+   
+  <button id="btn-sim" class="btn-toxic">Sim</button>
+  <button id="btn-nao" class="btn-toxic" onclick="moveNao()">Não</button>
+
+  <div id="message" class="message">Agora nós estamos namorandoo! 💖</div>
+
+  <script>
+    document.getElementById("btn-sim").addEventListener("click", function() {
+      document.getElementById("message").style.display = "block";
+      document.getElementById("btn-sim").disabled = true; 
+      document.getElementById("btn-nao").disabled = true; 
+    });
+
+   
+    function moveNao() {
+      let btnNao = document.getElementById("btn-nao");
+      let maxWidth = window.innerWidth - btnNao.offsetWidth;
+      let maxHeight = window.innerHeight - btnNao.offsetHeight;
+      let randomX = Math.floor(Math.random() * maxWidth);
+      let randomY = Math.floor(Math.random() * maxHeight);
+
+      btnNao.style.position = "absolute";
+      btnNao.style.left = randomX + "px";
+      btnNao.style.top = randomY + "px";
+    }
+  </script>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
